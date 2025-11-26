@@ -1,0 +1,7 @@
+{
+  "cpu_usage_pct": 75,
+  "memory_usage_pct": 60,
+  "memory_leak_rate": 0.08,
+  "restart_count_24h": 1,
+  "error_log_rate": 5
+}

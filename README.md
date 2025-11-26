@@ -1,40 +1,35 @@
-# Pod Failure Prediction System
+# 🚀 Pod Failure Prediction System
 
 ![Dashboard Screenshot](assets/dashboard.png)
 
-This project predicts if a Kubernetes pod will fail soon or if it is healthy using Machine Learning.
+**Elevator pitch:** Predicts whether a Kubernetes pod will fail soon (1) or is healthy (0) using runtime metrics. FastAPI + Streamlit UI.
 
-## How to Run API
+---
+
+## ✨ Features
+- Predict pod failure using a saved ML pipeline
+- REST API (FastAPI) with Pydantic validation
+- Interactive Streamlit dashboard for demo
+- Clean project structure and dark theme
+
+---
+
+## ▶ Quick start (run locally)
+
+```bash
+# clone
+git clone https://github.com/brcew/pod-failure-prediction.git
+cd pod-failure-prediction
+
+# create and activate virtualenv (Windows)
+python -m venv venv
+venv\Scripts\activate
+
+# install
+pip install -r requirements.txt
+
+# Run API (new terminal)
 uvicorn api.main:app --reload
 
-Open in browser:
-http://127.0.0.1:8000/docs
-
-## How to Run Dashboard
+# Run dashboard (new terminal)
 streamlit run app/dashboard.py
-
-## Sample Input (JSON)
-{
-  "cpu_usage_pct": 75,
-  "memory_usage_pct": 60,
-  "memory_leak_rate": 0.08,
-  "restart_count_24h": 1,
-  "error_log_rate": 5,
-  "request_latency_ms": 120,
-  "replica_count": 3,
-  "node_pressure_score": 0.50,
-  "autoscaler_action": "scale_up",
-  "prometheus_anomaly_score": 0.45,
-  "previous_failures": 2,
-  "deployment_uptime_hrs": 150
-}
-
-## Project Files
-api/main.py        → FastAPI backend  
-app/dashboard.py   → Streamlit dashboard  
-src/train_model.py → Train model  
-src/predict.py     → Test model  
-models/best_model.pkl → Saved model  
-
-## Author
-Shahul Hussain
