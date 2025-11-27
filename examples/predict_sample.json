@@ -3,5 +3,12 @@
   "memory_usage_pct": 60,
   "memory_leak_rate": 0.08,
   "restart_count_24h": 1,
-  "error_log_rate": 5
+  "error_log_rate": 5,
+  "request_latency_ms": 120,
+  "replica_count": 3,
+  "node_pressure_score": 0.50,
+  "autoscaler_action": "scale_up",
+  "prometheus_anomaly_score": 0.45,
+  "previous_failures": 2,
+  "deployment_uptime_hrs": 150
 }
