@@ -1,43 +1,45 @@
 🚀 Pod Failure Prediction System
 
-This project predicts if a Kubernetes pod will fail soon or if it is healthy using Machine Learning.
-It has 3 parts:
+Predict Kubernetes pod failures using Machine Learning + FastAPI + Streamlit.
 
-⚙️ Machine Learning model
+🌟 Overview
 
-🌐 FastAPI backend
+This project predicts if a Kubernetes pod is healthy or likely to fail soon based on system metrics such as CPU, memory usage, restart count, node pressure, etc.
 
-🖥️ Streamlit dashboard
+It includes:
 
-Easy for anyone to test.
+⚙️ Machine Learning model (Logistic Regression)
 
-✨ Features
+🌐 FastAPI backend (/predict endpoint)
 
-Predicts pod failure using ML
+🖥️ Streamlit Dashboard
 
-Clean Streamlit dashboard
+🌍 Live Demo (Global Links)
+🔵 Dashboard (Streamlit UI)
 
-FastAPI endpoint /predict
+👉 https://pod-failure-prediction-1.onrender.com
 
-Dark Purple theme
+🟣 API Documentation (FastAPI Swagger UI)
 
-Beginner-friendly structure
+👉 https://pod-failure-prediction-1.onrender.com/docs
 
-▶️ How to Run the Project
-🟣 Run API
+Both links work anywhere globally 🌎
+(First open may take 30–60 sec because free Render plan sleeps.)
+
+▶️ How to Run Locally
+🟣 Start API
 uvicorn api.main:app --reload
 
 
-Open:
+Open in browser:
+👉 http://127.0.0.1:8000/docs
 
-http://127.0.0.1:8000/docs
-
-🟣 Run Dashboard
+🟣 Start Dashboard
 streamlit run app/dashboard.py
 
-🧪 Sample JSON Input
+🔧 Sample JSON Input
 
-Put this in API:
+Use this in Swagger UI → /predict:
 
 {
   "cpu_usage_pct": 75,
@@ -54,26 +56,43 @@ Put this in API:
   "deployment_uptime_hrs": 150
 }
 
-📁 Project Structure (Simple)
-api/main.py        → FastAPI backend
-app/dashboard.py   → Streamlit UI
-src/train_model.py → Train the ML model
-src/predict.py     → Test predictions
-models/            → Saved model
-assets/            → Screenshots
-examples/          → Sample JSON inputs
+📁 Project Structure
+pod-failure-prediction/
+├── api/
+│   └── main.py
+├── app/
+│   └── dashboard.py
+├── models/
+│   └── best_model.pkl
+├── src/
+│   ├── train_model.py
+│   ├── predict.py
+│   ├── load_data.py
+│   └── eda.py
+├── examples/
+│   └── predict_sample.json
+├── assets/
+│   └── dashboard.png
+├── requirements.txt
+├── Dockerfile
+├── start.sh
+└── README.md
 
 🧠 Model Details
 
-Algorithm → Logistic Regression
+Algorithm: Logistic Regression
 
-Preprocessing → StandardScaler + OneHotEncoder
+Preprocessing:
 
-Saved model → models/best_model.pkl
+StandardScaler
 
-Train/test split → 80/20
+OneHotEncoder
 
-🧾 License
+Dataset split: 80% train, 20% test
+
+Model stored at: models/best_model.pkl
+
+📜 License
 
 MIT License
 
