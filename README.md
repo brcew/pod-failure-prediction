@@ -1,46 +1,69 @@
-🚀 Pod Failure Prediction System
+# 🚀 Pod Failure Prediction System
 
-Predict Kubernetes pod failures using Machine Learning + FastAPI + Streamlit.
+A full Machine Learning + FastAPI + Streamlit project that predicts whether a Kubernetes pod will fail soon or stay healthy.
 
-🌟 Overview
+🔗 **LIVE DEMO (Render Deployment)**  
+👉 https://pod-failure-prediction-1.onrender.com  
 
-This project predicts if a Kubernetes pod is healthy or likely to fail soon based on system metrics such as CPU, memory usage, restart count, node pressure, etc.
+Anyone in the world can open this link and use your project.
 
-It includes:
+---
 
-⚙️ Machine Learning model (Logistic Regression)
+## 📌 What This Project Does (Simple Explanation)
 
-🌐 FastAPI backend (/predict endpoint)
+This system takes pod metrics like:
 
-🖥️ Streamlit Dashboard
+- CPU usage
+- Memory usage
+- Restart count
+- Autoscaler action
+- Node pressure
+- Anomaly score  
+…and predicts:
 
-🌍 Live Demo (Global Links)
-🔵 Dashboard (Streamlit UI)
+```
+1 → Pod will FAIL soon  
+0 → Pod is HEALTHY  
+```
 
-👉 https://pod-failure-prediction-1.onrender.com
+---
 
-🟣 API Documentation (FastAPI Swagger UI)
+# ✨ Features
 
-👉 https://pod-failure-prediction-1.onrender.com/docs
+- ✔ Machine Learning model (Logistic Regression pipeline)  
+- ✔ FastAPI backend  
+- ✔ Streamlit dashboard (dark purple theme)  
+- ✔ Hosted & globally accessible on Render  
+- ✔ Clean folder structure  
+- ✔ Easy for beginners to understand  
+- ✔ Real-time prediction  
 
-Both links work anywhere globally 🌎
-(First open may take 30–60 sec because free Render plan sleeps.)
+---
 
-▶️ How to Run Locally
-🟣 Start API
+# ▶️ How to Run Locally (if someone wants to)
+
+### 🟣 Start API
+```
 uvicorn api.main:app --reload
+```
 
-
-Open in browser:
+Now open API docs:  
 👉 http://127.0.0.1:8000/docs
 
-🟣 Start Dashboard
+---
+
+### 🟣 Start Dashboard
+```
 streamlit run app/dashboard.py
+```
 
-🔧 Sample JSON Input
+---
 
-Use this in Swagger UI → /predict:
+# 🧪 Sample JSON Input (Working Example)
 
+Anyone can send this to `/predict`:
+
+```json
 {
   "cpu_usage_pct": 75,
   "memory_usage_pct": 60,
@@ -55,50 +78,87 @@ Use this in Swagger UI → /predict:
   "previous_failures": 2,
   "deployment_uptime_hrs": 150
 }
+```
 
-📁 Project Structure
+---
+
+# 📁 Project Structure (simple & clear)
+
+```
 pod-failure-prediction/
-├── api/
-│   └── main.py
-├── app/
-│   └── dashboard.py
-├── models/
-│   └── best_model.pkl
-├── src/
-│   ├── train_model.py
-│   ├── predict.py
-│   ├── load_data.py
-│   └── eda.py
-├── examples/
+│── api/
+│   └── main.py            → FastAPI backend
+│── app/
+│   └── dashboard.py       → Streamlit dashboard
+│── src/
+│   ├── train_model.py     → Trains ML model
+│   └── predict.py         → Test predictions
+│── models/
+│   └── best_model.pkl     → Saved ML model
+│── data/
+│   └── dataset.csv        → Dataset (optional)
+│── assets/
+│   └── dashboard.png      → Screenshot
+│── examples/
 │   └── predict_sample.json
-├── assets/
-│   └── dashboard.png
-├── requirements.txt
-├── Dockerfile
-├── start.sh
-└── README.md
+│── .streamlit/
+│   └── config.toml        → Dark purple theme
+│── Dockerfile             → Deployment
+│── README.md              → Project documentation
+```
 
-🧠 Model Details
+---
 
-Algorithm: Logistic Regression
+# 🧠 Model Details
 
-Preprocessing:
+- Algorithm → Logistic Regression  
+- Preprocessing → StandardScaler + OneHotEncoder  
+- Saved pipeline → `models/best_model.pkl`  
+- Train/Test → 80/20 split  
+- Evaluation → accuracy, F1, precision, recall, ROC-AUC  
 
-StandardScaler
+---
 
-OneHotEncoder
+# 🖼️ Screenshot (add your image)
 
-Dataset split: 80% train, 20% test
+Add this file:  
+```
+assets/dashboard.png
+```
 
-Model stored at: models/best_model.pkl
+Then show it in README:
 
-📜 License
+```
+![Dashboard](assets/dashboard.png)
+```
+
+---
+
+# 🔥 Deployment (Render)
+
+Your global public URL:  
+👉 https://pod-failure-prediction-1.onrender.com
+
+Uses:
+
+- Dockerfile  
+- Render Web Service  
+- Port exposed = 10000  
+- Automatically runs FastAPI  
+
+---
+
+# 🧾 License
 
 MIT License
 
-✍️ Author
+---
 
-Shahul Hussain
+# ✍️ Author
+
+**Shahul Hussain**  
 B.Tech CSE (AI)
 
+---
 
+# ⭐ If you like the project, give a ⭐ on GitHub!
