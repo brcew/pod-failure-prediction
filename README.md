@@ -115,22 +115,7 @@ pod-failure-prediction/
 - Preprocessing → StandardScaler + OneHotEncoder  
 - Saved pipeline → `models/best_model.pkl`  
 - Train/Test → 80/20 split  
-- Evaluation → accuracy, F1, precision, recall, ROC-AUC  
-
----
-
-# 🖼️ Screenshot (add your image)
-
-Add this file:  
-```
-assets/dashboard.png
-```
-
-Then show it in README:
-
-```
-![Dashboard](assets/dashboard.png)
-```
+- Evaluation → accuracy, F1, precision, recall, ROC-AUC 
 
 ---
 
